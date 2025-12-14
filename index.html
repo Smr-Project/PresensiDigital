@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smr Project</title>
+    <style>
+        /* Menggunakan Flexbox untuk tata letak Header-Content-Footer */
+        body {
+            margin: 0;
+            display: flex; /* Mengaktifkan Flexbox */
+            flex-direction: column; /* Menyusun item secara vertikal */
+            min-height: 100vh; /* Memastikan body mencakup seluruh tinggi viewport */
+        }
+        
+        /* Gaya untuk Pesan Selamat Datang (sekarang untuk Logo) */
+        #welcome-message {
+            display: flex; /* Mengaktifkan Flexbox untuk pemusatan */
+            justify-content: center; /* Memusatkan konten secara horizontal */
+            align-items: center; /* Memusatkan konten secara vertikal */
+            flex-grow: 1; /* Mengambil semua ruang yang tersisa */
+            background-color: #fff; /* Latar belakang putih (perubahan di sini) */
+        }
+        
+        /* Gaya untuk Logo Gambar */
+        #welcome-message img {
+            max-width: 80%; /* Batasi lebar gambar agar tidak terlalu besar */
+            max-height: 80vh; /* Batasi tinggi gambar sesuai viewport */
+            height: auto;
+            border-radius: 15px; /* Sudut membulat untuk estetika (opsional) */
+            /* Menerapkan Animasi Logo */
+            animation: logoPulse 3s infinite alternate; 
+        }
+
+        /* Keyframes untuk Animasi Logo */
+        @keyframes logoPulse {
+            0% {
+                opacity: 0.8; /* Sedikit transparan */
+                transform: scale(0.95); /* Sedikit menyusut */
+            }
+            100% {
+                opacity: 1; /* Penuh/Jelas */
+                transform: scale(1.05); /* Sedikit membesar */
+            }
+        }
+
+        /* Styling untuk Iframe */
+        iframe {
+            display: none; /* Penting: Secara default disembunyikan, akan ditampilkan oleh JavaScript */
+            width: 100%;
+            flex-grow: 1; 
+            border: none;
+            background: #fff; 
+        }
+        
+        /* Styling untuk Footer */
+        footer {
+            padding: 10px;
+            text-align: center;
+            background-color: #f1f1f1; 
+            color: #333; 
+            font-size: 0.9em;
+            flex-shrink: 0; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Elemen Logo Animasi -->
+    <div id="welcome-message">
+        <img src="logo.png" alt="Logo Proyek Presensi">
+    </div>
+    
+    <!-- Iframe asli, diberikan ID dan display: none secara default -->
+    <iframe id="main-iframe" src="https://script.google.com/macros/s/AKfycbxEWnHbC25BOKQhpqLNox8J0lbovXULU8Rl6arf55DBrrgC3tTe6Z0dKqPyWr9wPa2FGQ/exec" allow="camera"></iframe>
+    
+    <!-- Elemen Footer Baru -->
+    <footer>
+        &copy; Copyright 2025; By, Smr Project
+    </footer>
+
+    <script>
+        // Durasi tampilan pesan selamat datang/logo dalam milidetik (3000ms = 3 detik)
+        const displayDuration = 3000; 
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeMessage = document.getElementById('welcome-message');
+            const mainIframe = document.getElementById('main-iframe');
+
+            // Gunakan setTimeout untuk menunggu durasi yang ditentukan
+            setTimeout(() => {
+                // 1. Sembunyikan pesan/logo
+                welcomeMessage.style.display = 'none';
+
+                // 2. Tampilkan iframe (tujuan)
+                mainIframe.style.display = 'block';
+            }, displayDuration); // Akan dijalankan setelah 3 detik
+        });
+    </script>
+</body>
+</html>
