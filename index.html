@@ -19,7 +19,7 @@
             justify-content: center; /* Memusatkan konten secara horizontal */
             align-items: center; /* Memusatkan konten secara vertikal */
             flex-grow: 1; /* Mengambil semua ruang yang tersisa */
-            background-color: #fff; /* Latar belakang putih (perubahan di sini) */
+            background-color: #fff; /* Latar belakang putih */
         }
         
         /* Gaya untuk Logo Gambar */
@@ -70,8 +70,12 @@
         <img src="logo.png" alt="Logo Proyek Presensi">
     </div>
     
-    <!-- Iframe asli, diberikan ID dan display: none secara default -->
-    <iframe id="main-iframe" src="https://script.google.com/macros/s/AKfycbxEWnHbC25BOKQhpqLNox8J0lbovXULU8Rl6arf55DBrrgC3tTe6Z0dKqPyWr9wPa2FGQ/exec" allow="camera"></iframe>
+    <!-- Iframe dengan izin Kamera DAN Lokasi -->
+    <iframe 
+        id="main-iframe" 
+        src="https://script.google.com/macros/s/AKfycbxEWnHbC25BOKQhpqLNox8J0lbovXULU8Rl6arf55DBrrgC3tTe6Z0dKqPyWr9wPa2FGQ/exec" 
+        allow="camera; geolocation">
+    </iframe>
     
     <!-- Elemen Footer Baru -->
     <footer>
